@@ -1,0 +1,18 @@
+name: Test Every 5 Minutes
+
+on:
+  schedule:
+    # Her 5 dakikada bir çalışır
+    - cron: "*/5 * * * *"
+  workflow_dispatch: # Manuel çalıştırma
+
+jobs:
+  run-bot-every-5min:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Debug Info
+        run: |
+          echo "🕐 UTC Time: $(date -u '+%Y-%m-%d %H:%M:%S')"
+          echo "🌍 Local Time: $(date '+%Y-%m-%d %H:%M:%S')"
+          echo "✅ 5 dakikalık test workflow çalışıyor!"
