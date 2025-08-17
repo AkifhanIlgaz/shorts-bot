@@ -2,8 +2,8 @@ name: Daily Bot Run
 
 on:
   schedule:
-    # Her gün gece 23:30'da çalışır (UTC)
-    - cron: "16 20 * * *"
+    # Her gün gece 23:30'da çalışır (Türkiye saati)
+    - cron: "30 20 * * *"
   workflow_dispatch: # Manuel olarak da çalıştırılabilir
 
 jobs:
@@ -19,12 +19,19 @@ jobs:
         with:
           go-version: "1.21"
 
+      - name: Cache Go modules
+        uses: actions/cache@v3
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
       - name: Download dependencies
         run: go mod download
 
       - name: Run bot
         run: go run main.go
-
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
