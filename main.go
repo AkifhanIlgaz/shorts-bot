@@ -167,7 +167,7 @@ func GenerateDefaultMetadata() VideoMetadata {
 	return VideoMetadata{
 		Title:         fmt.Sprintf("Gün %d - Kel Ahmet", daysSinceStart),
 		Description:   description,
-		Tags:          []string{"günlük", "otomatik", "bot", "github-actions", "programming", "automation", "daily", fmt.Sprintf("gün%d", daysSinceStart)},
+		Tags:          []string{"ahmet", "ten", "verdi", "verdi", fmt.Sprintf("gün%d", daysSinceStart)},
 		CategoryID:    "22", // People & Blogs
 		PrivacyStatus: "public",
 		Language:      "tr",
