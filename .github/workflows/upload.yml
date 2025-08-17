@@ -3,7 +3,7 @@ name: Daily Bot Run
 on:
   schedule:
     # Her gün gece 23:30'da çalışır (UTC)
-    - cron: "10 23 * * *"
+    - cron: "12 20 * * *"
   workflow_dispatch: # Manuel olarak da çalıştırılabilir
 
 jobs:
